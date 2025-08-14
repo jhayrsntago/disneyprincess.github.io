@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney Princess Reviewer</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom, #ffd6e8, #ffeef4);
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh; /* ensure it covers full viewport height */
+        overflow: hidden;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+    }
+
+    header h1 {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 30px;
+    }
+
+    nav {
+        list-style: none;
+        display: flex;
+        background: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        gap: 25px;
+        margin: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        font-style: italic;
+        color: black;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 700px;
+        margin: 50px auto;
+    }
+
+    .card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.8); /* transparent white border */
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .grid img{
+        display: block;
+        width: 70px;
+        position: relative;
+    }
+
+    .pdf-link {
+        display: block;
+        width: 100%;
+        padding-top: 100%; /* Square box */
+        background: #ffd6e8;
+        position: relative;
+    }
+
+    .pdf-link::after {
+        content: "Click to view PDF";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #690631ff;
+        font-size: 14px;
+    }
+
+    .label {
+        font-weight: bold;
+        margin-top: 8px;
+    }
+
+    .bear {
+        position: absolute;
+        width: 130px;
+        pointer-events: none;
+        animation: spin 20s linear infinite;
+    }
+
+    /* Spin Animation */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+        from { transform: translateY(0); }
+        to { transform: translateY(-10px); }
+    }
+
+    /* Bear positions */
+    .bear-top-left { top: -20px; left: -20px; }
+    .bear-top-right { top: -20px; right: -20px; }
+    .bear-bottom-left { bottom: -20px; left: -20px; }
+    .bear-bottom-right { bottom: -20px; right: -20px; }
+    
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Tobi</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="reviewer.html">Reviewer</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+<div id="bear-container">
+    <div class="grid">
+    <div class="card">
+        <a href="pdf\M1.pdf" target="_blank" class="pdf-link">
+            <img src="image\angry.png" alt="M1 Preview">
+        </a>
+        <div class="label">M1</div>
+    </div>
+    <div class="card">
+        <a href="pdf\M2.pdf" target="_blank" class="pdf-link">
+            <img src="image\bear4.png" alt="M2 Preview" >
+        </a>
+        <div class="label">M2</div>
+    </div>
+    <div class="card">
+        <a href="pdf\M3.pdf" target="_blank" class="pdf-link">
+            <img src="image\bear5.png" alt="M3 Preview" >
+        </a>
+        <div class="label">M3</div>
+    </div>
+    <div class="card">
+        <a href="pdf\M4.pdf" target="_blank" class="pdf-link">
+            <img src="image\bear7.png" alt="M4 Preview" >
+        </a>
+        <div class="label">M4</div>
+    </div>
+    <div class="card">
+        <a href="pdf\M5.pdf" target="_blank" class="pdf-link">
+            <img src="image\bear9.png" alt="M5 Preview" >
+        </a>
+        <div class="label">M5</div>
+    </div>
+    <div class="card">
+        <a href="pdf\M6.pdf" target="_blank" class="pdf-link">
+            <img src="image\bear10.png" alt="M6 Preview" >
+        </a>
+        <div class="label">M6</div>
+    </div>
+</div>
+
+</div>
+<script src="js\script.js"></script>
+</body>
+</html>
