@@ -4,8 +4,8 @@ body {
     background: linear-gradient(to bottom, #ffd6e8, #ffeef4);
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh; /* ensure it covers full viewport height */
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden; /* prevent horizontal scroll */
 }
 
 header {
@@ -13,11 +13,13 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
 }
 
 .logo {
     font-family: 'Brush Script MT', cursive;
     font-size: 30px;
+    flex: 1; /* helps balance space in mobile */
 }
 
 nav ul {
@@ -28,6 +30,7 @@ nav ul {
     border-radius: 20px;
     gap: 25px;
     margin: 0;
+    flex-wrap: wrap; /* wrap menu items on smaller screens */
 }
 
 nav ul li a {
@@ -41,22 +44,21 @@ main {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* vertical centering */
-    align-items: center;     /* horizontal centering */
-    min-height: 100vh;       /* take full screen height */
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
     padding-top: 70px;
     font-size: 25px;
+    text-align: center; /* center text on small screens */
 }
 
 h1 {
-
     font-weight: bold;
     color: black;
 }
 
 .highlight {
     font-weight: bold;
-
 }
 
 .pink {
@@ -65,17 +67,20 @@ h1 {
 }
 
 .big-bear {
-    position: fixed; /* stays at bottom-right of viewport */
+    position: fixed;
     right: 20px;
     bottom: 5px;
-    width: 500px; /* bigger size */
-    z-index: 3; /* ensures it stays above floating bears */
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    z-index: 3;
 }
 
 /* Floating bears */
 .bear {
     position: absolute;
     width: 120px;
+    max-width: 25vw; /* relative to screen size */
     pointer-events: none;
     animation: spin 20s linear infinite;
 }
@@ -83,4 +88,81 @@ h1 {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    .big-bear {
+        width: 350px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    nav ul {
+        gap: 15px;
+        padding: 6px 15px;
+    }
+
+    main {
+        font-size: 20px;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 15px;
+    }
+
+    main {
+        font-size: 18px;
+        padding-top: 50px;
+    }
+
+    .big-bear {
+        position: static; /* move inside flow */
+        width: 250px;
+        margin-top: 20px;
+    }
+
+    .bear {
+        width: 80px;
+    }
+}
+
+/* Small mobile view */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    main {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .big-bear {
+        width: 200px;
+    }
+
+    .bear {
+        width: 60px;
+    }
 }
